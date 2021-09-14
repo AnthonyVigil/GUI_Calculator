@@ -4,8 +4,10 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.gridlayout import GridLayout
 from kivy.uix.label import Label
 
+#Open app
 class myApp(App):
     def build(self):
+        #Create format for calculator symbols
         root_widget = BoxLayout(orientation='vertical')
         output_label = Label(size_hint_y = 0.75, font_size=50)
         button_symbols = ('1', '2', '3', '+',
@@ -15,7 +17,7 @@ class myApp(App):
         button_grid = GridLayout(cols=4, size_hint_y=2)
         for symbol in button_symbols:
             button_grid.add_widget(Button(text=symbol))
-
+        #Add clear button
         clear_button = Button(text = 'Clear', size_hint_y=None, height=100)
         def print_button_text(instance):
             output_label.text += instance.text
